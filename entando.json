@@ -1,0 +1,47 @@
+{
+    "microservices": [
+        {
+            "name": "simple-node-ms",
+            "stack": "node",
+            "healthCheckPath": "/api/health",
+            "env": [
+                { "name": "SIMPLE_VAR",
+                    "value": "mySimpleValue"
+                },
+                { "name": "SECRET_VAR",
+                    "secretKeyRef": {
+                        "name": "6b67998a-my-secret",
+                        "key": "appleKey"
+                    }
+                }
+            ]
+
+        }
+    ],
+    "microfrontends": [
+        {
+            "name": "simple-mfe",
+            "customElement": "simple-mfe",
+            "stack": "react",
+            "type": "widget",
+            "group": "free",
+            "publicFolder": "public",
+            "titles": {
+                "en": "Simple MFE with API Claim",
+                "it": "Simple MFE with API Claim"
+            },
+            "apiClaims": [
+                {
+                    "name": "simple-node-api",
+                    "type": "internal",
+                    "serviceName": "simple-node-ms"
+                }
+            ]
+        }
+    ],
+    "svc": [],
+    "name": "20230130-env-vars",
+    "version": "0.0.2",
+    "description": "Simple MFE with API Claim with env vars",
+    "type": "bundle"
+}

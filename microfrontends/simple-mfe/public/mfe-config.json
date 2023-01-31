@@ -1,0 +1,9 @@
+{
+    "systemParams": {
+        "api": {
+            "simple-node-api": {
+                "url": "http://localhost:8081"
+            }
+        }
+    }
+}
